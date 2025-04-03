@@ -1,0 +1,19 @@
+{
+  "name": "psychic-octo-waddle",
+  "version": "1.0.0",
+  "description": "new iniit",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dazephster/psychic-octo-waddle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dazephster/psychic-octo-waddle/issues"
+  },
+  "homepage": "https://github.com/dazephster/psychic-octo-waddle#readme"
+}

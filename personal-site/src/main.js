@@ -1,0 +1,44 @@
+import './assets/main.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './assets/base.css'
+import 'bootstrap'
+//ex: import Home from '@/views/Home.vue'
+
+import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import App from './App.vue'
+import Home from './components/Home.vue'
+import Contacts from './components/Contacts.vue'
+import Projects from './components/Projects.vue'
+import About from './components/About.vue'
+import Hobbies from './components/Hobbies.vue'
+import '@fontsource/poppins';
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes: [
+        {path: '/', redirect:'/home'},
+        {path: '/home', name:'Home', component: Home},
+        {path: '/about', name:'About', component: About},
+        {path: '/projects', name:'Projects', component: Projects},
+        {path: '/contacts', name:'Contacts', component: Contacts},
+        {path: '/hobbies', name:'Hobbies', component: Hobbies},
+    ],
+})
+
+const vIntersect = {
+    mounted(el) {
+        const observer = new IntersectionObserver(([entry]) => {
+            if(entry.isIntersecting) {
+                el.classList.add('animate');
+                observer.unobserve(el);
+            }
+        }, {threshold: 0.2});
+        observer.observe(el);
+    }
+};
+
+const app = createApp(App);
+app.use(router)
+app.directive('intersect', vIntersect)
+app.mount('#app');
