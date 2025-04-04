@@ -20,14 +20,14 @@ const basePath = '/psychic-octo-waddle';
 const router = createRouter({
     history: createWebHistory(basePath),
     routes: [
-        {path: '/', redirect: basePath + '/home'},
-        {path: basePath, redirect: basePath + '/home'},
-        {path: basePath + '/home', name:'Home', component: Home},
-        {path: basePath + '/about', name:'About', component: About},
-        {path: basePath + '/projects', name:'Projects', component: Projects},
-        {path: basePath + '/contacts', name:'Contacts', component: Contacts},
-        {path: basePath + '/hobbies', name:'Hobbies', component: Hobbies},
-        {path: basePath + '/settings', name:'Settings', component: Settings},
+        {path: '/', redirect: '/home'},
+        {path: basePath, redirect: '/home'},
+        {path: '/home', name:'Home', component: Home},
+        {path: '/about', name:'About', component: About},
+        {path: '/projects', name:'Projects', component: Projects},
+        {path: '/contacts', name:'Contacts', component: Contacts},
+        {path: '/hobbies', name:'Hobbies', component: Hobbies},
+        {path: '/settings', name:'Settings', component: Settings},
     ],
 })
 
