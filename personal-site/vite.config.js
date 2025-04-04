@@ -6,7 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/<psychic-octo-waddle>/',
+  base: '/psychic-octo-waddle/',
   plugins: [
     vue(),
     vueDevTools(),
