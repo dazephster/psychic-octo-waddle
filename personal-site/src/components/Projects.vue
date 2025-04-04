@@ -23,7 +23,7 @@
             link: 'https://github.com/hydrogen602Trinity/Cartographers',
         },
         {
-            name: 'Connect 4 AI', source: '/images/connect4.jpg',
+            name: 'Connect 4 AI', source: baseLink + '/images/connect4.jpg',
             description: 'Created AI for Connect 4 that used future gamestates to make optimal moves. Included difficulty setting. Made in 2020',
             tools: ['Haskell','Git'],
             link: 'https://github.com/TU-CSCI2322-FL20/game-solver-doubting_thomases',
@@ -32,20 +32,20 @@
 
     const newCells = ref([
         {
-            name: 'Personal Site', source: '/images/inception.png',
+            name: 'Personal Site', source: baseLink + '/images/inception.png',
             description: 'You\'re here! I published this site in April 2025.',
             tools: ['Vue 3','Vite', 'Bootstrap'],
             link: 'https://github.com/dazephster/psychic-octo-waddle',
         },
         {
-            name: 'Task/Habit Progress Webapp', source: '/images/list.jpg',
+            name: 'Task/Habit Progress Webapp', source: baseLink + '/images/list.jpg',
             description: 'I was inspired to create my own progress tracker app after not being able to find what I needed elsewhere. ' +
             'This app is still in-progress and I started in April 2025.',
             tools: ['Angular',''],
             link: '',
         },
         {
-            name: 'SuperTiebreaker', source: '/images/stb_placeholder.jpg',
+            name: 'SuperTiebreaker', source: baseLink + '/images/stb_placeholder.jpg',
             description: 'A simple tennis game I\'m working on in my free time. I started in February 2025.',
             tools: ['Godot',''],
             link: '',

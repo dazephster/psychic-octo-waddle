@@ -45,5 +45,4 @@ const vIntersect = {
 const app = createApp(App);
 app.use(router)
 app.directive('intersect', vIntersect)
-// app.config.globalProperties.$site = '/psychic-octo-waddle';
 app.mount('#app');

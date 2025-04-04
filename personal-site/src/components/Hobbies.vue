@@ -11,7 +11,7 @@
 
         const cell = event.currentTarget;
         const rect = cell.getBoundingClientRect();
-        console.log(rect);
+        //console.log(rect);
         const containerRect = event.currentTarget.closest('.outer').getBoundingClientRect();
         curWidth.value = rect.width;
 
@@ -86,7 +86,7 @@
                 'https://www.start.gg/tournament/otaku-zone-season-3-arcadian/events',
             ],
         },
-        {name: 'Gym', source: '/images/gym.webp', color: 'red', nameColor: 'white',
+        {name: 'Gym', source: baseLink + '/images/gym.webp', color: 'red', nameColor: 'white',
             description: 'After my knee injury, I started becoming more invested in weightlifting. '
                 + 'For a while I focused on powerlifting, but as my knee slowly continues to improve '
                 + 'I\'ve been able to incorporate more athletic and dynamic movements into my routine.',
@@ -94,14 +94,14 @@
             'I\'d be goated fr fr if I would diet properly',
             ],
         },
-        {name: 'Hiking', source: '/images/hiking.jpg', color: 'yellow', nameColor: 'black',
+        {name: 'Hiking', source: baseLink + '/images/hiking.jpg', color: 'yellow', nameColor: 'black',
             description: 'Hiking is a more recent hobby that I picked up while traveling to Alaska. '
                 + 'Now whenever I travel I make sure to set aside at least a day to hike and explore. ',
             funs: ['I\'ve hiked in Alaska, California, and Texas so far', 'I\'ve been within about 50 feet of a moose',
                 'Audio books are a must for me while hiking',
             ]
         },
-        {name: 'Reading', source: '/images/dark_tower.webp', color: 'green', nameColor: 'white',
+        {name: 'Reading', source: baseLink + '/images/dark_tower.webp', color: 'green', nameColor: 'white',
             description: 'I used to read a lot when I was younger, but for a few reasons (mostly school making it feel like a chore and video games) '
                 + 'I stopped reading books outside of school for about a decade. I\'ve recently returned to reading '
                 + 'and am currently working my way through the Dark Tower series by Stephen King.',
@@ -112,11 +112,27 @@
         },
     ]);
 
-    const temp = () => {
-        console.log('temp');
-    };
+    const data = ref(null);
+    const loading = ref(true);
+    const error = ref(null);
+
+    // const fetchData = async () => {
+    //     try {
+    //         const response = await fetch('http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=CD174C363DE6011CE694BBA46D27C37E&steamid=76561198248648080&format=json');
+    //         if (!response.ok) {
+    //             throw new Error(`HTTP error! status: ${response.status}`);
+    //         }
+    //         data.value = await response.json();
+    //         console.log(data.value);
+    //     } catch (e) {
+    //         error.value = e;
+    //     } finally {
+    //         loading.value = false;
+    //     }
+    // };
 
     onMounted(() => {
+        // fetchData();
     });
 </script>
 
