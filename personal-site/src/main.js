@@ -2,7 +2,6 @@ import './assets/main.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/base.css'
 import 'bootstrap'
-//ex: import Home from '@/views/Home.vue'
 
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
@@ -46,5 +45,5 @@ const vIntersect = {
 const app = createApp(App);
 app.use(router)
 app.directive('intersect', vIntersect)
-app.config.globalProperties.$siteRoute = '/psychic-octo-waddle';
+app.config.globalProperties.$site = '/psychic-octo-waddle';
 app.mount('#app');
