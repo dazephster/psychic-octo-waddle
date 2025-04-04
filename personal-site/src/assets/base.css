@@ -58,6 +58,23 @@
   }
 }
 
+[data-theme="main"] {
+  --color-primary: #8a5bd6;
+  --color-secondary: #a28db8;
+  --color-secondary-alt: #dac7e2;
+  --color-text: #212b43;
+  --color-background: #ebe1ef;
+  --color-error: #f794ca;
+  --color-error-extra: #f279c2;
+  
+  --color-header: #000080;
+  --color-analogous: #5B69D6;
+}
+
+[data-theme="dark"] {
+  
+}
+
 *,
 *::before,
 *::after {

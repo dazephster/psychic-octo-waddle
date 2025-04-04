@@ -2,6 +2,8 @@
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import TopNavBar from './components/TopNavBar.vue'
+
+  document.documentElement.setAttribute("data-theme", "main");
 </script>
 
 <template>

@@ -1,11 +1,6 @@
 <script setup>
     import { ref, onMounted } from 'vue';
 
-    // export default {
-    //     name: 'Projects',
-    // }
-    //Cell has a name, picture (can be default), description, tools used, and link
-
     const oldCells = ref([
         {
             name: 'Space Invader Game', source: '',
@@ -14,8 +9,8 @@
             link: 'https://github.com/TrinityUniv-CS1321-Spring2017/spacegame20-alee8-TU',
         },
         {
-            name: 'Tutoring Scheduler', source: '',
-            description: 'A webapp that was made to help professors and TAs schedule tutoring sessions.',
+            name: 'Tutoring Scheduler', source: '/images/schedule.jpg',
+            description: 'A webapp that was made to help professors and TAs schedule tutoring sessions. Made in 2021',
             tools: ['React', 'SQL'],
             link: 'https://github.com/ChrisGKennedy/tutoringScheduler',
         },
@@ -26,8 +21,8 @@
             link: 'https://github.com/hydrogen602Trinity/Cartographers',
         },
         {
-            name: 'Connect 4 AI', source: '',
-            description: 'Created AI for Connect 4 that used future gamestates to make optimal moves. Included difficulty setting.',
+            name: 'Connect 4 AI', source: '/images/connect4.jpg',
+            description: 'Created AI for Connect 4 that used future gamestates to make optimal moves. Included difficulty setting. Made in 2020',
             tools: ['Haskell','Git'],
             link: 'https://github.com/TU-CSCI2322-FL20/game-solver-doubting_thomases',
         },
@@ -36,12 +31,12 @@
     const newCells = ref([
         {
             name: 'Personal Site', source: '/images/inception.png',
-            description: 'You\'re here! I made this site in April 2025.',
+            description: 'You\'re here! I published this site in April 2025.',
             tools: ['Vue 3','Vite', 'Bootstrap'],
             link: 'https://github.com/dazephster/psychic-octo-waddle',
         },
         {
-            name: 'Progress/Meditation Webapp', source: '',
+            name: 'Task/Habit Progress Webapp', source: '/images/list.jpg',
             description: 'I was inspired to create my own progress tracker app after not being able to find what I needed elsewhere. ' +
             'This app is still in-progress and I started in April 2025.',
             tools: ['Angular',''],
@@ -49,7 +44,7 @@
         },
         {
             name: 'SuperTiebreaker', source: '/images/stb_placeholder.jpg',
-            description: 'A simple tennis game I\'m working on in my free time. I started in April 2025.',
+            description: 'A simple tennis game I\'m working on in my free time. I started in February 2025.',
             tools: ['Godot',''],
             link: '',
         },
@@ -68,9 +63,6 @@
 
 <template>
     <div class="container">
-        <div>
-            Newer Projects
-        </div>
         <div class="row">
             <div 
                 v-for="(cell, index) in newCells" 
@@ -108,7 +100,7 @@
             </div>
         </div>
 
-        <div>
+        <div class="header">
             Old Projects
         </div>
         <div class="row">
@@ -119,21 +111,25 @@
                 class="col-12 col-md-6 mb-3"
             >
                 <div class="cell">
-                    <div class="top-row row">
+                    <div class="top-row d-flex justify-content-left align-items-center row">
                         <div class="col-8">
-                            <div class="name">{{ cell.name }}</div>
+                            <div class="name">
+                                <span>{{ cell.name }}</span>
+                            </div>
                         </div>
                         <div class="col-4 picture-col">
                             <img v-if="cell.source.length > 2" class="picture" :src="cell.source" alt="cell image" />
                         </div>
                     </div>
+                    <div class="spacer"></div>
                     <div class="bottom-row row">
                         <div class="col-6">
                             <div class="description">{{ cell.description }}</div>
                         </div>
                         <div class="col-6">
                             <div class="tools">
-                                <div v-for="(tool, index) in cell.tools" :key="index">{{ tool }}</div>
+                                <div>Tools Used:</div>
+                                <li v-for="(tool, index) in cell.tools" :key="index">{{ tool }}</li>
                             </div>
                             <div class="link">
                                 <a v-if="cell.link.length > 2" :href="cell.link" target="_blank">Link</a>
@@ -146,12 +142,26 @@
     </div>
 </template>
 
-<style>
+<style scoped>
+    .container {
+        padding-top: 20px;
+    }
+
+    .header {
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-decoration: underline;
+    }
+
     .cell {
         height: 100%;
         padding: 10px;
         border: 1px solid var(--color-secondary);
         border-radius: 10px;
+        box-shadow: 0px 0px 10px 2px var(--color-secondary);
     }
 
     .top-row {
@@ -166,6 +176,7 @@
         height: 100%;
 
         .picture {
+            max-width: 100%;
             padding-right: 6px;
             height: 90%;
         }
@@ -174,7 +185,7 @@
     .spacer {
         margin-top: 6px;
         margin-bottom: 6px;
-        border-bottom: 2px solid white;
+        border-bottom: 2px solid var(--color-secondary);
     }
 
     .bottom-row {

@@ -21,7 +21,6 @@
             left: `${rect.left - containerRect.left}px`,
             width: `${rect.width}px`,
             height: `${rect.height}px`,
-            backgroundColor: `${cell.style.backgroundColor}`,
         };
 
         expandCellStyle.value = {
@@ -55,8 +54,6 @@
         showFuns.value = false;
     };
 
-
-
     const expanding = ref(false);
     const expandBoxStyle = ref({});
     const expandCellStyle = ref({});
@@ -70,7 +67,7 @@
 
 
     const cells = ref([
-        {name: 'Tennis', source: '/images/tennis.jpg', color: 'blue', nameColor: 'white',
+        {name: 'Sports', source: '/images/tennis.jpg', color: 'blue', nameColor: 'white',
             description: 'I played tennis competitively from when I was 12 through college. '
                 + 'I still enjoy playing recreationally, teaching other players, and trying ' 
                 + 'out similar sports like badminton and pickleball.',
@@ -80,26 +77,26 @@
         },
         {name: 'Video Games', source: '/images/tamusa_event.jpg', color: 'black', nameColor: 'white',
             description: 'I was introduced to video games at a young age through playing FIFA matches with my dad. '
-                + 'I grew up with Nintendo consoles and got into PC games in college.'
-                + '',
+                + 'I grew up with Nintendo consoles and got into PC games while in college. '
+                + 'After my tennis injury until college I made almost all of my friends through competing in Super Smash Bros tournaments.',
             funs: ['My most recently played Steam game is ___ (fill in later w Steam API)',
                 'My most replayed games are probably Mario and Luigi: Superstar Saga and Fire Emblem 7',
                 'I\'ve competed in many platform fighters, and have won a few local tournaments including a San Antonio arcadian.',
-                'https://www.start.gg/tournament/otaku-zone-season-3-arcadian/events figure this out later',
+                'https://www.start.gg/tournament/otaku-zone-season-3-arcadian/events',
             ],
         },
         {name: 'Gym', source: '/images/gym.webp', color: 'red', nameColor: 'white',
             description: 'After my knee injury, I started becoming more invested in weightlifting. '
                 + 'For a while I focused on powerlifting, but as my knee slowly continues to improve '
                 + 'I\'ve been able to incorporate more athletic and dynamic movements into my routine.',
-            funs: ['My estimated Wilks score is ~290','I would be goated fr fr if I would diet properly',
-                'I could also do with some more cardio probably',
+            funs: ['My estimated Wilks score is ~290','I am a based leg day enjoyer',
+            'I\'d be goated fr fr if I would diet properly',
             ],
         },
         {name: 'Hiking', source: '/images/hiking.jpg', color: 'yellow', nameColor: 'black',
             description: 'Hiking is a more recent hobby that I picked up while traveling to Alaska. '
                 + 'Now whenever I travel I make sure to set aside at least a day to hike and explore. ',
-            funs: ['I\'ve hiked in Alaska, California, and Texas', 'I\'ve been within probably 50 feet of a moose',
+            funs: ['I\'ve hiked in Alaska, California, and Texas so far', 'I\'ve been within about 50 feet of a moose',
                 'Audio books are a must for me while hiking',
             ]
         },
@@ -108,8 +105,8 @@
                 + 'I stopped reading books outside of school for about a decade. I\'ve recently returned to reading '
                 + 'and am currently working my way through the Dark Tower series by Stephen King.',
             funs: ['The series I remember liking the most as a kid was the Guardians of Ga\'Hoole series',
-                'I\'ll probably finish the Bloodsworn Saga by John Gwynne next',
-                'Check out my Goodreads: (link here)',
+                'After finishing the Dark Tower I\'ll probably continue the Bloodsworn Saga by John Gwynne',
+                'Check out my Goodreads: https://www.goodreads.com/user/show/179546083-austin',
             ]
         },
     ]);
@@ -134,24 +131,26 @@
                             <img class="picture" :src="curImg" alt="cell image" />
                         </div>
                         <div class="name-box">
-                            <div class="name" :style="{color: curCell.nameColor}">{{ curName }}</div>
+                            <div class="name">{{ curName }}</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-8">
+                <div class="col-8 d-flex align-items-center justify-content-center">
                     <div v-if="showDesc" class="description">
                         {{ curDesc }}
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row expand-box-bottom">
                 <div class="col-12">
                     <div v-if="showFuns" class="fun-facts">
-                        <div class="fun-fact" v-for="(fun, index) in curFuns"
-                        :key="index"
-                        :style="{animationDelay: `${index * 0.5}s`}">
-                            {{ fun }}
-                        </div>
+                        <ul>
+                            <li class="fun-fact" v-for="(fun, index) in curFuns"
+                                :key="index"
+                                :style="{animationDelay: `${index * 0.5}s`}">
+                                {{ "• " + fun }}
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -164,13 +163,12 @@
                 class="col-12 col-md-4 mb-3"
             >
                 <div class="cell"
-                :style="{backgroundColor: cell.color}"
                 @click="expandCell($event, cell)">
                     <div class="picture-box">
                         <img class="picture" :src="cell.source" alt="cell image" />
                     </div>
                     <div class="name-box">
-                        <div class="name" :style="{color: cell.nameColor}">{{ cell.name }}</div>
+                        <div class="name">{{ cell.name }}</div>
                     </div>
                 </div>
             </div>  
@@ -197,9 +195,10 @@
 .cell {
     height: 200px;
     padding: 8px;
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 8px;
     cursor: pointer;
+    background-color: var(--color-primary);
 
     .picture-box {
         width: 100%;
@@ -225,24 +224,43 @@
             font-size: 14px;
             font-weight: bold;
             text-align: center;
+            color: white;
         }
     }
 }
 
 .expand-box {
-    /* background-color: red; */
-    border: 2px solid white;
+    background-color: var(--color-primary);
+    border: 2px solid black;
     border-radius: 8px;
     animation: expand 1s forwards ease-in-out;
     z-index: 100;
+    display: flex;
+    flex-direction: column;
 
     .description {
         animation: fade-up 1s forwards ease-in-out;
-        /* animation-delay: 1s; */
+        color: white;
+        font-size: 16px;
+    }
+
+    .expand-box-bottom {
+        flex: 1;
+    }
+
+    .fun-facts {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
     }
 
     .fun-fact {
         opacity: 0;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        padding-left: 20px;
+        color: white;
         animation: wipe-in-right 1s forwards ease-in;
     }
 }
