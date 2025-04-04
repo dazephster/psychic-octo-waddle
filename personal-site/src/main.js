@@ -18,13 +18,14 @@ import '@fontsource/poppins';
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        {path: '/', redirect:'/home'},
-        {path: '/home', name:'Home', component: Home},
-        {path: '/about', name:'About', component: About},
-        {path: '/projects', name:'Projects', component: Projects},
-        {path: '/contacts', name:'Contacts', component: Contacts},
-        {path: '/hobbies', name:'Hobbies', component: Hobbies},
-        {path: '/settings', name:'Settings', component: Settings},
+        {path: '/', redirect: $route + '/home'},
+        {path: $route, redirect: $route + '/home'},
+        {path: $route + '/home', name:'Home', component: Home},
+        {path: $route + '/about', name:'About', component: About},
+        {path: $route + '/projects', name:'Projects', component: Projects},
+        {path: $route + '/contacts', name:'Contacts', component: Contacts},
+        {path: $route + '/hobbies', name:'Hobbies', component: Hobbies},
+        {path: $route + '/settings', name:'Settings', component: Settings},
     ],
 })
 
@@ -43,4 +44,5 @@ const vIntersect = {
 const app = createApp(App);
 app.use(router)
 app.directive('intersect', vIntersect)
+app.config.globalProperties.$route = '/psychic-octo-waddle';
 app.mount('#app');

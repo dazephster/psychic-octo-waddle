@@ -9,7 +9,7 @@
             link: 'https://github.com/TrinityUniv-CS1321-Spring2017/spacegame20-alee8-TU',
         },
         {
-            name: 'Tutoring Scheduler', source: '/images/schedule.jpg',
+            name: 'Tutoring Scheduler', source: $route + '/images/schedule.jpg',
             description: 'A webapp that was made to help professors and TAs schedule tutoring sessions. Made in 2021',
             tools: ['React', 'SQL'],
             link: 'https://github.com/ChrisGKennedy/tutoringScheduler',
@@ -55,10 +55,6 @@
             link: '',
         },
     ]);
-
-    onMounted(() => {
-        console.log('Projects mounted');
-    });
 </script>
 
 <template>
