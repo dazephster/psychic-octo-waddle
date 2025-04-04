@@ -15,17 +15,19 @@ import Hobbies from './components/Hobbies.vue'
 import Settings from './components/Settings.vue'
 import '@fontsource/poppins';
 
+const basePath = '/psychic-octo-waddle';
+
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        {path: '/', redirect: $route + '/home'},
-        {path: $route, redirect: $route + '/home'},
-        {path: $route + '/home', name:'Home', component: Home},
-        {path: $route + '/about', name:'About', component: About},
-        {path: $route + '/projects', name:'Projects', component: Projects},
-        {path: $route + '/contacts', name:'Contacts', component: Contacts},
-        {path: $route + '/hobbies', name:'Hobbies', component: Hobbies},
-        {path: $route + '/settings', name:'Settings', component: Settings},
+        {path: '/', redirect: basePath + '/home'},
+        {path: basePath, redirect: basePath + '/home'},
+        {path: basePath + '/home', name:'Home', component: Home},
+        {path: basePath + '/about', name:'About', component: About},
+        {path: basePath + '/projects', name:'Projects', component: Projects},
+        {path: basePath + '/contacts', name:'Contacts', component: Contacts},
+        {path: basePath + '/hobbies', name:'Hobbies', component: Hobbies},
+        {path: basePath + '/settings', name:'Settings', component: Settings},
     ],
 })
 
