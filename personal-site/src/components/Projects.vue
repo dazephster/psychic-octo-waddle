@@ -1,6 +1,8 @@
 <script setup>
     import { ref, onMounted } from 'vue';
 
+    const baseLink = '/psychic-octo-waddle';
+
     const oldCells = ref([
         {
             name: 'Space Invader Game', source: '',
@@ -9,7 +11,7 @@
             link: 'https://github.com/TrinityUniv-CS1321-Spring2017/spacegame20-alee8-TU',
         },
         {
-            name: 'Tutoring Scheduler', source: $route + '/images/schedule.jpg',
+            name: 'Tutoring Scheduler', source: baseLink + '/images/schedule.jpg',
             description: 'A webapp that was made to help professors and TAs schedule tutoring sessions. Made in 2021',
             tools: ['React', 'SQL'],
             link: 'https://github.com/ChrisGKennedy/tutoringScheduler',
