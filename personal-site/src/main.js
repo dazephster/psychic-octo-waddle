@@ -18,7 +18,7 @@ import '@fontsource/poppins';
 const basePath = '/psychic-octo-waddle';
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(basePath),
     routes: [
         {path: '/', redirect: basePath + '/home'},
         {path: basePath, redirect: basePath + '/home'},
