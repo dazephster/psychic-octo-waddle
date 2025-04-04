@@ -12,6 +12,7 @@ import Contacts from './components/Contacts.vue'
 import Projects from './components/Projects.vue'
 import About from './components/About.vue'
 import Hobbies from './components/Hobbies.vue'
+import Settings from './components/Settings.vue'
 import '@fontsource/poppins';
 
 const router = createRouter({
@@ -23,6 +24,7 @@ const router = createRouter({
         {path: '/projects', name:'Projects', component: Projects},
         {path: '/contacts', name:'Contacts', component: Contacts},
         {path: '/hobbies', name:'Hobbies', component: Hobbies},
+        {path: '/settings', name:'Settings', component: Settings},
     ],
 })
 

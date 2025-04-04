@@ -21,19 +21,6 @@
                 ageInYrs--;
             }
 
-            // onMounted(async () => {
-
-
-            // });
-
-            // onUnmounted(() => {
-            //     if(observer)
-            // })
-
-            const animateOnScroll = (el) => {
-                useInter
-            }
-
             return {
                 timeMessage,
                 ageInYrs,
@@ -46,8 +33,9 @@
 <template>
     <div class="container padding">
         <div class="row">
+            <span class="header">Good {{ timeMessage }}!</span>
             <span>
-                Good {{ timeMessage }}, my name is Austin Lee! I'm a {{ ageInYrs }} year old software developer
+                My name is Austin Lee! I'm a {{ ageInYrs }} year old software developer
                 from Frisco, Texas. All my life I've been a curious learner and a passionate competitor.
                 I enjoy building cool things, collaborating with others, and leading myself and my team to victory.
             </span>
@@ -87,6 +75,13 @@
         padding-top: 50px;
     }
 
+    .header {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
     .temp {
         height: 500px;
     }
@@ -106,6 +101,7 @@
     .image {
         /* animation: name duration timing-function delay iteration-count direction fill-mode; */
         height: 100%;
+        box-shadow: 0px 0px 10px 4px var(--color-secondary);
     }
 
     @keyframes image-wipe-in-left {
