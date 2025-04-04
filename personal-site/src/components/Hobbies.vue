@@ -67,7 +67,7 @@
 
 
     const cells = ref([
-        {name: 'Sports', source: '/images/tennis.jpg', color: 'blue', nameColor: 'white',
+        {name: 'Sports', source: $route + '/images/tennis.jpg', color: 'blue', nameColor: 'white',
             description: 'I played tennis competitively from when I was 12 through college. '
                 + 'I still enjoy playing recreationally, teaching other players, and trying ' 
                 + 'out similar sports like badminton and pickleball.',
