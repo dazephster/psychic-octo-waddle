@@ -72,7 +72,7 @@
 }
 
 [data-theme="dark"] {
-  
+  --color-primary: black;
 }
 
 *,
