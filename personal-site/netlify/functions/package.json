@@ -1,8 +1,9 @@
 {
-    "name": "fetchsteamdata",
+    "name": "functions",
     "version": "1.0.0",
     "main": "fetchSteamData.js",
     "dependencies": {
       "axios": "^1.6.8"
     }
 }
+  
