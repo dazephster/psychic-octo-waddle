@@ -1,13 +1,16 @@
 [build]
   command = "npm run build"
-  functions = "netlify/functions"
+  functions = "src/functions"
   publish = "dist"
+  node_bundler = "esbuild"
 
 [dev]
-  functions = "netlify/functions"
+  functions = "src/functions"
+  node_bundler = "esbuild"
 
 [functions]
-  directory = "netlify/functions"
+  directory = "src/functions"
+  node_bundler = "esbuild"
 
 [[redirects]]
   from = "/*"
