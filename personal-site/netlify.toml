@@ -1,4 +1,3 @@
-# example netlify.toml
 [build]
   command = "npm run build"
   functions = "netlify/functions"
@@ -6,6 +5,9 @@
 
 [dev]
   functions = "netlify/functions"
+
+[functions]
+  directory = "netlify/functions"
 
 [[redirects]]
   from = "/*"
