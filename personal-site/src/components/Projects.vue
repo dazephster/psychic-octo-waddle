@@ -52,7 +52,7 @@
             link: '',
         },
         {
-            name: 'Frixion', source: '',
+            name: 'Frixion', source: '/images/fzero.jpg',
             description: 'A racing game inspired by Sonic Riders, F-Zero, and other fast-paced racers.',
             tools: ['',''],
             link: '',
