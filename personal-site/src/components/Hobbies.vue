@@ -1,5 +1,6 @@
 <script setup>
     import { useTemplateRef, ref, onMounted, watch } from 'vue';
+    import { handler } from '../../netlify/functions/fetchSteamData';
 
     const expandCell = (event, newCell) => {
         expanding.value = !expanding.value;
@@ -7,13 +8,12 @@
         curName.value = newCell.name;
         curDesc.value = newCell.description;
         curFuns.value = newCell.funs;
-        curCell.value = newCell;
+        //curCell.value = newCell;
 
         const cell = event.currentTarget;
         const rect = cell.getBoundingClientRect();
-        //console.log(rect);
         const containerRect = event.currentTarget.closest('.outer').getBoundingClientRect();
-        curWidth.value = rect.width;
+        //curWidth.value = rect.width;
 
         expandBoxStyle.value = {
             position: 'absolute',
@@ -62,8 +62,8 @@
     const curName = ref('');
     const curDesc = ref('');
     const curFuns = ref([]);
-    const curCell = ref({});
-    const curWidth = ref(0);
+    //const curCell = ref({});
+    //const curWidth = ref(0);
 
     const baseLink = '/psychic-octo-waddle';
 
@@ -80,7 +80,7 @@
             description: 'I was introduced to video games at a young age through playing FIFA matches with my dad. '
                 + 'I grew up with Nintendo consoles and got into PC games while in college. '
                 + 'After my tennis injury until college I made almost all of my friends through competing in Super Smash Bros tournaments.',
-            funs: ['My most recently played Steam game is ___ (fill in later w Steam API)',
+            funs: ['My recently played Steam games are ',
                 'My most replayed games are probably Mario and Luigi: Superstar Saga and Fire Emblem 7',
                 'I\'ve competed in many platform fighters, and have won a few local tournaments including a San Antonio arcadian.',
                 'https://www.start.gg/tournament/otaku-zone-season-3-arcadian/events',
@@ -112,27 +112,21 @@
         },
     ]);
 
-    const data = ref(null);
-    const loading = ref(true);
-    const error = ref(null);
+    onMounted(async () => {
+        try {
+            const res = await fetch('/.netlify/functions/fetchSteamData');
+            const json = await res.json();
+            const gamesArr = ref([]);
+            json.response.games.forEach(game => {
+                gamesArr.value.push(game.name);
+            });
+            console.log(gamesArr.value);
 
-    // const fetchData = async () => {
-    //     try {
-    //         const response = await fetch('http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=CD174C363DE6011CE694BBA46D27C37E&steamid=76561198248648080&format=json');
-    //         if (!response.ok) {
-    //             throw new Error(`HTTP error! status: ${response.status}`);
-    //         }
-    //         data.value = await response.json();
-    //         console.log(data.value);
-    //     } catch (e) {
-    //         error.value = e;
-    //     } finally {
-    //         loading.value = false;
-    //     }
-    // };
-
-    onMounted(() => {
-        // fetchData();
+            
+            cells.value[1].funs[0] += gamesArr.value.join(', ') + " (via SteamAPI)";
+        } catch (err) {
+            console.error('Failed to fetch Steam data:', err);
+        }
     });
 </script>
 
