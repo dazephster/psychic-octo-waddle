@@ -1,6 +1,5 @@
 <script setup>
     import { useTemplateRef, ref, onMounted, watch } from 'vue';
-    import { handler } from '../../netlify/functions/fetchSteamData';
 
     const expandCell = (event, newCell) => {
         expanding.value = !expanding.value;
@@ -8,16 +7,14 @@
         curName.value = newCell.name;
         curDesc.value = newCell.description;
         curFuns.value = newCell.funs;
-        //curCell.value = newCell;
 
         const cell = event.currentTarget;
         const rect = cell.getBoundingClientRect();
         const containerRect = event.currentTarget.closest('.outer').getBoundingClientRect();
-        //curWidth.value = rect.width;
 
         expandBoxStyle.value = {
             position: 'absolute',
-            top: `${rect.top - containerRect.top}px`,  // Adjust to container's relative position
+            top: `${rect.top - containerRect.top}px`,
             left: `${rect.left - containerRect.left}px`,
             width: `${rect.width}px`,
             height: `${rect.height}px`,
@@ -62,8 +59,6 @@
     const curName = ref('');
     const curDesc = ref('');
     const curFuns = ref([]);
-    //const curCell = ref({});
-    //const curWidth = ref(0);
 
     const baseLink = '/psychic-octo-waddle';
 
