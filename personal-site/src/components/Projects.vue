@@ -1,7 +1,8 @@
 <script setup>
     import { ref, onMounted } from 'vue';
 
-    const baseLink = '/psychic-octo-waddle';
+    // const baseLink = '/psychic-octo-waddle';
+    const baseLink = '';
 
     const oldCells = ref([
         {

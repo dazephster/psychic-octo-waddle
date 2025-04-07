@@ -14,7 +14,10 @@ import Hobbies from './components/Hobbies.vue'
 import Settings from './components/Settings.vue'
 import '@fontsource/poppins';
 
-const basePath = '/psychic-octo-waddle';
+// const basePath = '/psychic-octo-waddle';
+
+//Netlify update?
+const basePath = '';
 
 const router = createRouter({
     history: createWebHistory(basePath),

@@ -60,7 +60,10 @@
     const curDesc = ref('');
     const curFuns = ref([]);
 
-    const baseLink = '/psychic-octo-waddle';
+    // const baseLink = '/psychic-octo-waddle';
+
+    //N Upd
+    const baseLink = '';
 
     const cells = ref([
         {name: 'Sports', source: baseLink + '/images/tennis.jpg', color: 'blue', nameColor: 'white',
