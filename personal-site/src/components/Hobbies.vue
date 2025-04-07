@@ -133,10 +133,11 @@
 
 <template>
     <div ref="container" class="container outer">
+        <div class="header">Click on a cell to see more!</div>
         <div ref="expand-box" v-if="expanding" :style="expandBoxStyle" class="expand-box"
         @click="closeCell()">
             <div class="row">
-                <div class="col-4">
+                <div class="col-12 col-sm-4">
                     <div class="cell"
                     :style="expandCellStyle">
                         <div class="picture-box">
@@ -147,7 +148,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-8 d-flex align-items-center justify-content-center">
+                <div class="col-12 col-sm-8 d-flex align-items-center justify-content-center">
+
                     <div v-if="showDesc" class="description">
                         {{ curDesc }}
                     </div>
@@ -163,6 +165,10 @@
                                 {{ "• " + fun }}
                             </li>
                         </ul>
+                        <div class="close-text fun-fact"
+                            :style="{animationDelay: `${curFuns.length * 0.5}s`}">
+                            * Click anywhere in the cell to close
+                        </div>
                     </div>
                 </div>
             </div>
@@ -200,11 +206,19 @@
     bottom: 0;
 }
 
+.header {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
 .row {
     position: relative;
 }
 
 .cell {
+    /* max-width: 100%; */
     height: 200px;
     padding: 8px;
     border: 1px solid black;
@@ -242,6 +256,7 @@
 }
 
 .expand-box {
+    cursor: pointer;
     background-color: var(--color-primary);
     border: 2px solid black;
     border-radius: 8px;
@@ -251,6 +266,7 @@
     flex-direction: column;
 
     .description {
+        text-align: center;
         animation: fade-up 1s forwards ease-in-out;
         color: white;
         font-size: 16px;
@@ -273,6 +289,11 @@
         margin-bottom: 12px;
         padding-left: 20px;
         color: white;
+        animation: wipe-in-right 1s forwards ease-in;
+    }
+
+    .close-text {
+        opacity: 0;
         animation: wipe-in-right 1s forwards ease-in;
     }
 }
