@@ -1,8 +1,6 @@
-// netlify/functions/fetchSteamData.js
 import axios from 'axios';
 
 export async function handler(event, context) {
-  //const steamid = event.queryStringParameters.steamid;
 
   try {
     const response = await axios.get(

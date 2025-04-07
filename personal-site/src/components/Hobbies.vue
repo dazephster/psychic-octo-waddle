@@ -112,10 +112,10 @@
 
     onMounted(async () => {
         try {
-            const N = await (await fetch("/.netlify/functions/fetchSteamData")).json();
+            const N = await (await fetch("/.netlify/functions/fetchsteamdata/fetchSteamData")).json();
             console.log("Function response:", N);
 
-            const res = await fetch('/.netlify/functions/fetchSteamData');
+            const res = await fetch('/.netlify/functions/fetchsteamdata/fetchSteamData');
             const json = await res.json();
             const gamesArr = ref([]);
             json.response.games.forEach(game => {
