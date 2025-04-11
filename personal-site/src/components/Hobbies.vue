@@ -132,7 +132,12 @@
 </script>
 
 <template>
-    <div ref="container" class="container outer">
+    <div id="mobile-cover" class="mobile-cover outer">
+        <div class="mobile-text">
+            <span>Hobbies Page is not mobile friendly (yet).<br>Please expand the webpage to see the cells and animations</span>
+        </div>
+    </div>
+    <div id="container" ref="container" class="container outer">
         <div class="header">Click on a cell to see more!</div>
         <div ref="expand-box" v-if="expanding" :style="expandBoxStyle" class="expand-box"
         @click="closeCell()">
@@ -174,7 +179,7 @@
             </div>
         </div>
 
-        <div class="row justify-content-center">
+        <div id="cell-container" class="row justify-content-center">
             <div 
                 v-for="(cell, index) in cells" 
                 :key="index" 
@@ -195,8 +200,22 @@
 </template>
 
 <style scoped>
+.mobile-cover {
+    z-index: 1000;
+    background-color: grey;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-text {
+    text-align: center;
+    font-size: 20px;
+    color: black;
+}
+
 .outer {
-    /* overflow: hidden; */
     margin-top: 20px;
 
     position: absolute;
@@ -334,4 +353,16 @@
   [transition-style="in:wipe:right"] {
     animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-right both;
   }
+
+  @media only screen and (min-width: 770px) {
+        #mobile-cover {
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width: 769px) {
+        #cell-container {
+            display: none;
+        }
+    }
 </style>

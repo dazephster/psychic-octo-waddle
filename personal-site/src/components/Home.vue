@@ -12,6 +12,9 @@
       I'm Austin, and this is my personal site.<br>
       Feel free to click on the links above to learn more about me,<br>
       or head over to the <router-link class="link" :to="'/contacts'"><span>Contacts</span></router-link> page to get in touch!</span>
+      <span>
+        <br><br>Also check out my<a class="link" target="_blank" href="https://docs.google.com/document/d/17Hc4-2s4jioYbK9P7fvx5zIdeq1qZ0P578Dr-Po5DSg/edit?usp=sharing">Resume</a>!
+      </span>
   </div>
 </template>
 
