@@ -9,7 +9,7 @@
   <div class="text d-flex justify-content-center align-items-center">
     <span>
       <span class="header">Hello!</span><br><br>
-      I'm Austin, and this is my personal site.<br>
+      I'm Austin, and this is my personal site I made to learn more about web dev,<br>and to showcase future projects.<br>
       Feel free to click on the links above to learn more about me,<br>
       or head over to the <router-link class="link" :to="'/contacts'"><span>Contacts</span></router-link> page to get in touch!</span>
       <span>

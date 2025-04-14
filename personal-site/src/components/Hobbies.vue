@@ -61,12 +61,10 @@
     const curFuns = ref([]);
 
     // const baseLink = '/psychic-octo-waddle';
-
-    //N Upd
     const baseLink = '';
 
     const cells = ref([
-        {name: 'Sports', source: baseLink + '/images/tennis.jpg', color: 'blue', nameColor: 'white',
+        {name: 'Tennis & Other Sports', source: baseLink + '/images/tennis.jpg', color: 'blue', nameColor: 'white',
             description: 'I played tennis competitively from when I was 12 through college. '
                 + 'I still enjoy playing recreationally, teaching other players, and trying ' 
                 + 'out similar sports like badminton and pickleball.',
@@ -74,7 +72,7 @@
                 'I was a runner-up in the Texas Grand Slam twice for singles and once in doubles',
                 'My favorite player to watch was Juan Martin del Potro'],
         },
-        {name: 'Video Games', source: baseLink + '/images/tamusa_event.jpg', color: 'black', nameColor: 'white',
+        {name: 'Esports & Video Games', source: baseLink + '/images/tamusa_event.jpg', color: 'black', nameColor: 'white',
             description: 'I was introduced to video games at a young age through playing FIFA matches with my dad. '
                 + 'I grew up with Nintendo consoles and got into PC games while in college. '
                 + 'After my tennis injury until college I made almost all of my friends through competing in Super Smash Bros tournaments.',
@@ -84,7 +82,7 @@
                 'https://www.start.gg/tournament/otaku-zone-season-3-arcadian/events',
             ],
         },
-        {name: 'Gym', source: baseLink + '/images/gym.webp', color: 'red', nameColor: 'white',
+        {name: 'Powerlifting', source: baseLink + '/images/gym.webp', color: 'red', nameColor: 'white',
             description: 'After my knee injury, I started becoming more invested in weightlifting. '
                 + 'For a while I focused on powerlifting, but as my knee slowly continues to improve '
                 + 'I\'ve been able to incorporate more athletic and dynamic movements into my routine.',
@@ -96,15 +94,15 @@
             description: 'Hiking is a more recent hobby that I picked up while traveling to Alaska. '
                 + 'Now whenever I travel I make sure to set aside at least a day to hike and explore. ',
             funs: ['I\'ve hiked in Alaska, California, and Texas so far', 'I\'ve been within about 50 feet of a moose',
-                'Audio books are a must for me while hiking',
             ]
         },
         {name: 'Reading', source: baseLink + '/images/dark_tower.webp', color: 'green', nameColor: 'white',
             description: 'I used to read a lot when I was younger, but for a few reasons (mostly school making it feel like a chore and video games) '
                 + 'I stopped reading books outside of school for about a decade. I\'ve recently returned to reading '
                 + 'and am currently working my way through the Dark Tower series by Stephen King.',
-            funs: ['The series I remember liking the most as a kid was the Guardians of Ga\'Hoole series',
-                'After finishing the Dark Tower I\'ll probably continue the Bloodsworn Saga by John Gwynne',
+            funs: ['My favorite series as a kid was Guardians of Ga\'Hoole',
+                'After finishing the Dark Tower I plan on continuing the Bloodsworn Saga by John Gwynne',
+                'I also like listening to more educational audiobooks like "Stolen Focus" and "Breath"',
                 'Check out my Goodreads: https://www.goodreads.com/user/show/179546083-austin',
             ]
         },

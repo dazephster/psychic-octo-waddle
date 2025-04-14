@@ -12,10 +12,10 @@ const NavOptions = [
 <template>
   <div class="container">
     <div class="row align-items-center">
-        <div class="col-2 logo-container">
+        <div class="col-4 col-sm-2 logo-container">
           <img alt="logo" class="picture" src="/images/main1to1.jpg" width="100" height="100" />
         </div>
-        <div class="col-10">
+        <div class="col-8 col-sm-10">
           <div class="row">
             <router-link
               v-for="option in NavOptions"
@@ -23,7 +23,7 @@ const NavOptions = [
               :to="option.link"
               class="col nav-link"
             >
-              <span class="hover-underline-animation center">{{ option.name }}</span>
+              <span class="hover-underline-animation center option">{{ option.name }}</span>
             </router-link>
           </div>
         </div>
@@ -63,6 +63,11 @@ const NavOptions = [
     text-align: center;
     font-size: 18px;
     color: var(--color-text);
+  }
+
+  .option {
+    padding-left: 4px;
+    padding-right: 4px;
   }
 
   .hover-underline-animation {
