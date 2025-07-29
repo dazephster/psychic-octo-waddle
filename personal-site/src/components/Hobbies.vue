@@ -121,10 +121,13 @@
             });
             console.log(gamesArr.value);
 
-            
-            cells.value[1].funs[0] += gamesArr.value.join(', ') + " (via SteamAPI)";
+            if(gamesArr.length == 0) {
+                cells.value[1].funs[0] = "I have no recently played Steam Games D: (via SteamAPI)"
+            } else {
+                cells.value[1].funs[0] += gamesArr.value.join(', ') + " (via SteamAPI)";
+            }
         } catch (err) {
-            console.error('Failed to fetch Steam data:', err);
+            console.error('Failed to fetch Steam data. If running locally, use \'netlify dev\' to make this endpoint work:', err);
         }
     });
 </script>

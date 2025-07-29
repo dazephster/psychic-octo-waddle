@@ -39,6 +39,14 @@
             link: 'https://github.com/dazephster/psychic-octo-waddle',
         },
         {
+            name: 'Shell Hackathon 2025 - ML Pipeline for Predicting Blend Properties',
+            source: '/images/shell_hackathon_logo.png', 
+            description: 'Built a predictive pipeline in Python to estimate 10 blend property values from component fractions and property data. ' +
+            'Finished in top 10% of teams.\nDate: July 2025',
+            tools: ['Python', 'pandas', 'scikit-learn', 'CatBoost', 'Other ML tools'],
+            link: 'https://github.com/dazephster/shell-hackathon-2025/'
+        },
+        {
             name: 'Task/Habit Progress Webapp', source: baseLink + '/images/list.jpg',
             description: 'I was inspired to create my own progress tracker app after not being able to find what I needed elsewhere. ' +
             'This app is in-progress and I started in April 2025.',
@@ -62,6 +70,12 @@
 
 <template>
     <div class="container">
+        <div class="row mb-4">
+            <div class="subheader">
+                To see my progress on projects I am currently working on, check out my 
+                <a class="link" :href="'https://github.com/dazephster/project-management/projects?query=is%3Aopen'">Project Boards!</a>
+            </div>
+        </div>
         <div class="row">
             <div 
                 v-for="(cell, index) in newCells" 
@@ -90,7 +104,7 @@
                                 <li v-for="(tool, index) in cell.tools" :key="index">{{ tool }}</li>
                             </div>
                             <div class="link">
-                                <a v-if="cell.link.length > 2" :href="cell.link" target="_blank">Link</a>
+                                <a class="link" v-if="cell.link.length > 2" :href="cell.link" target="_blank">Repo Link</a>
                             </div>
                         </div>
                     </div>
@@ -130,8 +144,8 @@
                                 <div>Tools Used:</div>
                                 <li v-for="(tool, index) in cell.tools" :key="index">{{ tool }}</li>
                             </div>
-                            <div class="link">
-                                <a v-if="cell.link.length > 2" :href="cell.link" target="_blank">Link</a>
+                            <div>
+                                <a class="link" v-if="cell.link.length > 2" :href="cell.link" target="_blank">Link</a>
                             </div>
                         </div>
                     </div>
@@ -155,6 +169,16 @@
         text-decoration: underline;
     }
 
+    .subheader {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .link {
+        color: var(--color-primary);
+        text-decoration: none;
+    }
+
     .cell {
         height: 100%;
         padding: 10px;
@@ -173,6 +197,8 @@
 
     .picture-col {
         height: 100%;
+        display: flex;
+        justify-content: center;
 
         .picture {
             max-width: 100%;

@@ -5,3 +5,9 @@ and to have as a showcase for future projects and other fun things I'd like to s
 The site works on desktop and mobile devices except for the Hobbies page.
 I was experimenting with more complex animations and didn't plan out how that page
 would look on mobile screens. I'll make a fix for that page in the future.
+
+To run locally:
+1) cd into personal-site folder
+2) run 'npm install'
+3) run 'npm run dev'
+4) Project should connect to http://localhost:5173/
